@@ -9,9 +9,9 @@ int main()
     string msg;
     string msg2 = " ";
     int y ;
-    int c ;
-    int b ;
-    int a ;
+    int c;
+    int b;
+    int a;
     int x ;
     char z ;
     char answer ;
@@ -25,6 +25,7 @@ int main()
     cin >> answer;
     if (answer == '1')
     {
+
         cout<<"please enter two number to make this equation (ax+b)%26 where x is the letter to cipher.\n";
         cout<<"a = ";
         cin>>a;
@@ -34,33 +35,23 @@ int main()
         {
             if (isupper(msg[i]))
             {
-                if (msg[i] != ' ')
-                {
-                    y = (char(msg[i]) - 65);
-                    x = (a * y + b);
-                   int w = mod(x,26);
-                    z = char(w+ 65);
-                    msg2 = msg2 + z;
-                }
-                else
-                {
-                    msg2= msg2 + ' ';
-                }
+                y = (char(msg[i]) - 65);
+                x = (a * y + b);
+                int w = mod(x,26);
+                z = char(w+ 65);
+                msg2 = msg2 + z;
+            }
+            else if (islower(msg[i]))
+            {
+                y = (char(msg[i]) - 97);
+                x = (a* y + b);
+                int w = mod(x,26);
+                z = char(w + 97);
+                msg2 = msg2 + z;
             }
             else
             {
-                if (msg[i] != ' ')
-                {
-                    y = (char(msg[i]) - 97);
-                    x = (a* y + b);
-                    int w = mod(x,26);
-                    z = char(w + 97);
-                    msg2 = msg2 + z;
-                }
-                else
-                {
-                    msg2= msg2 + ' ';
-                }
+                msg2 = msg2 +' ';
             }
 
         }
@@ -77,33 +68,23 @@ int main()
         {
             if (isupper(msg[i]))
             {
-                if (msg[i] != ' ')
-                {
-                    y = (char(msg[i])-65);
-                    x = (c*(y - b));
-                    int w = mod(x,26);
-                    z = char(w+65);
-                    msg2 = msg2 + z ;
-                }
-                else
-                {
-                    msg2 = msg2 + ' ';
-                }
+                y = (char(msg[i])-65);
+                x = (c*(y - b));
+                int w = mod(x,26);
+                z = char(w+65);
+                msg2 = msg2 + z ;
+            }
+            else if (islower(msg[i]))
+            {
+                y = (char(msg[i])-97);
+                x = (c*(y - b));
+                int w = mod(x,26);
+                z = char(w+97);
+                msg2 = msg2 + z ;
             }
             else
             {
-                if (msg[i] != ' ')
-                {
-                    y = (char(msg[i])-97);
-                    x = (c*(y - b));
-                    int w = mod(x,26);
-                    z = char(w+97);
-                    msg2 = msg2 + z ;
-                }
-                else
-                {
-                    msg2 = msg2 + ' ';
-                }
+                msg2 = msg2+' ';
             }
         }
         cout<<msg2;
